@@ -4,6 +4,9 @@ function getDate(dateString){
 	return newDate;
 }
 
+//need to replace with less redundant way
+
+// post model
 function post(type,logo, name1, name2, time, text,comment,favorites) {
 	var given = '<div class="post"><div class="post-content-container"><div class="post-header"><a class="profile-link" href=""><img class="profile-pic" src="';
 	var logoLink = logo + '" alt=""><strong class="fullname">';
@@ -14,6 +17,7 @@ function post(type,logo, name1, name2, time, text,comment,favorites) {
 	return combine;
 }
 
+//post with image
 function postWithImg(type,logo, name1, name2, time, text, img,comment,favorites) {
 	var given = '<div class="post"><div class="post-content-container"><div class="post-header"><a class="profile-link" href=""><img class="profile-pic" src="';
 	var logoLink = logo + '" alt=""><strong class="fullname">';
@@ -24,6 +28,7 @@ function postWithImg(type,logo, name1, name2, time, text, img,comment,favorites)
 	var combine = given + logoLink + n1 + n2 + content+image;
 	return combine;
 }
+//post with video
 function postWithVideo(type,logo, name1, name2, time, text, vid,comment) {
 	var given = '<div class="post"><div class="post-content-container"><div class="post-header"><a class="profile-link" href=""><img class="profile-pic" src="';
 	var logoLink = logo + '" alt=""><strong class="fullname">';
@@ -35,6 +40,11 @@ function postWithVideo(type,logo, name1, name2, time, text, vid,comment) {
 	var combine = given + logoLink + n1 + n2 + content+ video+info;
 	return combine;
 }
+
+/*function to get comment from instagram
+*
+*The function will loop through each comment arrays and get all the information about the comment.
+*/
 function getComment(comment){
 	var comments = "";
 	//console.log(comment);
@@ -55,13 +65,14 @@ function getComment(comment){
 	return comments;
 }
 var postUrl= "http://ix.cs.uoregon.edu/~kho3/php/twitter/post.php";
-//var updateUrl= "http://ix.cs.uoregon.edu/~kho3/php/twitter/update.php";
 var instaUrl= "http://ix.cs.uoregon.edu/~kho3/php/instagram/instaPost.php";
 var tweetLogo = "img/Twitter_logo_blue.png";
 var instaLogo = "img/insta-login.png";
 
 var json=[];
 var timer;
+
+//Function for getting user's tweets
 function getTweets(url) {
 	console.log("getting tweets......................");
 	//console.log(url);
@@ -109,7 +120,7 @@ function getTweets(url) {
 		//console.log(str.text)
 		return str==null? "" : str.text;
 	}
-
+//Function for getting user's instagram newsfeed
 function getInsta(url) {
 	console.log("getting instagram......................");
 	console.log(url);
@@ -142,21 +153,6 @@ function getInsta(url) {
 					getComment(val.comments),
 					'<a>'+val.likes.count+' likes</a>'));
 				}
-				/*if($.inArray(val.id, json)>-1){
-					//console.log("contain in json array");
-					//console.log($.inArray(val.id, json));
-					//console.log("contain in json array");
-					return;
-				}else{
-					//console.log("not contain in json array");
-					json.push(val.id);
-					if (val.entities.hasOwnProperty('media')) {
-						output.push(postWithImg(val.user.profile_image_url_https, val.user.name, val.user.screen_name, val.created_at, val.text, val.entities.media[0].media_url));
-						//console.log("$('.status').after(postWithImg(val.user.profile_image_url_https, val.user.name, val.user.screen_name, val.created_at, val.text,val.entities.media.media_url));");
-					} else {
-						output.push(post(val.user.profile_image_url_https, val.user.name, val.user.screen_name, val.created_at, val.text));
-					}
-				}*/
 			});
 			//console.log(json);
 			$("#home").append(output.join('')).slideDown('slow');
@@ -170,6 +166,7 @@ $(function() {
 	getTweets(postUrl);
 	getInsta(instaUrl);
 });
+
 function debug() {
 	console.log("start function");
   $('#debug').load('php/twitter/debug.php');

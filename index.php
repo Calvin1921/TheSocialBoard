@@ -14,13 +14,8 @@
 		<!--favicon-->
 		<link rel="shortcut icon" type="image/x-icon" href="img/siteIcon.ico">
 		  <?php
-    		//require_once ('php/twitter/twitter.php');
     		require_once ('php/twitter/twitter.php');
 			require_once ('php/instagram/instagram.php');
-			//require_once ('php/redirect.php');
-			/*require_once ('php/callback.php');
-			require_once('php/twitteroauth/twitteroauth.php');
-			require_once('php/config.php');*/
     	?>
     	
 	</head>
@@ -55,27 +50,8 @@
 					Submit
 				</button>
 			</div>
-			<!--<div class="post">
-				<img class="site-logo" src="img/Twitter_logo_blue.png" alt="">
-				<div class="post-content-container">
-					<div class="post-header">
-						<a class="profile-link" href=""> <img class="profile-pic" src="img/profilePic.jpeg" alt=""> <strong class="fullname">Nike Sportswear</strong> </a>
-					</div>
-					<div class="post-content">
-						But @SkyDigg4 is never satisfied: “I always feel like I could do more and could have done more." #techpack pic.twitter.com/4AqpdI6sgl
-					</div>
-					<div class="preview">
-						<img class="content-img" src="img/test.jpg" alt="">
-					</div>
-				</div>
-				<div class="post-info">
-					<a>comments</a>
-					<a>Likes</a>
-				</div>
-			</div>-->
 			</section>
 			<footer>
-				
 				<div id = "loadMore"><button type="button" onclick="getTweets(postUrl)">Load More</button></div>
 				<!--<button type="button"  id="loadMore" onclick="debug()">Load</button>-->
 				<div id ="debug"></div>

@@ -4,9 +4,9 @@
      
      // Setup class
      $instagram = new Instagram(array(
-       'apiKey'      => '5f538ec0d0234bf99122d4dba3b9c0d5',
-       'apiSecret'   => 'd81438f4304449ff81720bed93c1bce5',
-       'apiCallback' => 'http://ix.cs.uoregon.edu/~kho3/index.php' // must point to success.php
+       'apiKey'      => '',
+       'apiSecret'   => '',
+       'apiCallback' => '' // must point to success.php
      ));
      // Receive OAuth code parameter
     $data = $_SESSION[$token];
